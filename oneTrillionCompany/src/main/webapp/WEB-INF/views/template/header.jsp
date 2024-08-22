@@ -11,6 +11,7 @@
     <!-- 내가 만든 스타일 시트를 불러오는 코드 -->
     <link rel="stylesheet" type="text/css" href="/css/commons.css">
     <link rel="stylesheet" type="text/css" href="/css/test.css">
+<!--     <link rel="stylesheet" type="text/css" href="/css/search.css"> -->
     <!-- font awesome-->
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
@@ -75,6 +76,7 @@
      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js">
 
      </script>
+     <script src="/js/checkbox.js"></script>
 <body> <!-- 문서의 출력 내용을 담는 태그 -->
     <!-- 		<h1>내가 만든 홈페이지</h1> -->
     <!-- 		<a href=""></a> -->
@@ -143,13 +145,6 @@
 
 
             <!-- 구분선 -->
-            <label for="all-menu" class="sidebar-toggle">전체 목록</label>
-            <input  type="checkbox" id="all-menu" >
-            <div class="sidebar">
-            	<div class="row center">
-                <a class="link link-animation" href= "/member/logout">로그아웃</a>
-                </div>
-            </div>	
         <ul class="menu">
             <li>
                 <a href="#">상의</a>
@@ -269,5 +264,22 @@
             <!-- 구분선 -->
         </ul>
     </div>
+<!--             <label for="all-menu" class="sidebar-toggle">전체 목록</label> -->
+<!--             <input  type="checkbox" id="all-menu" > -->
+<!--             <div class="sidebar"> -->
+<!--             	<div class="row my-0 flex-box" style="min-height: 400px;"> -->
+<!--             <div class="w-200"> -->
+<!--                 <div class="row center flex-core" style="margin-top:200px"> -->
+                
+                
+<!--                 </div> -->
+<%--                 <div class="row center">${sessionScope.createdUser}(${sessionScope.createdLevel})</div> --%>
+<!--                 <div class="row center">5,000 point</div> -->
+<!--                 <div class="row center"> -->
+<!--                 <a class="link link-animation" href= "/member/logout">로그아웃</a> -->
+<!--                 </div> -->
+<!--             </div> -->
+<!--     </div> -->
+<!-- 	</div> -->
 
     <!-- 중단(Container) -->
