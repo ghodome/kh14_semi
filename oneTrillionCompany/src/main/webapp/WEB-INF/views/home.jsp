@@ -58,12 +58,12 @@
 				pauseOnMouseEnter : true,
 			},
 
-			// If we need pagination
-			//                 pagination: {
-			//                     el: '.swiper-pagination', // 적용대상
-			//                     clickable:true, //클릭하여 이동 가능
-			//                     type:'progressbar',
-			//                 },
+			//If we need pagination
+			                pagination: {
+			                    el: '.swiper-pagination', // 적용대상
+			                    clickable:true, //클릭하여 이동 가능
+			                    type:'progressbar',
+			                },
 
 			// Navigation arrows
 			navigation : {
@@ -114,13 +114,13 @@
 						<a href="#"><img src="http://via.placeholder.com/300.png"></a>
 					</div>
 				</div>
-				<!-- If we need pagination -->
-				<div class="swiper-pagination"></div>
 
 				<!-- If we need navigation buttons -->
 				<div class="swiper-button-prev"></div>
 				<div class="swiper-button-next"></div>
 
+				<!-- If we need pagination -->
+<!-- 				<div class="swiper-pagination"></div> -->
 
 				<!-- If we need scrollbar -->
 				<!-- <div class="swiper-scrollbar""></div> -->

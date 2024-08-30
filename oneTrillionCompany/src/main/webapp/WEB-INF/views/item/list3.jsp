@@ -43,7 +43,8 @@ a>h4 {
 	<!-- 검색창 -->
 	<div class="container w-1000">
 		<div class="row center"></div>
-		<h3>데이터 개수 : ${itemList.size()}</h3>
+		<h3 id="data-count" data-count="${itemList.size()}">데이터 개수 : ${itemList.size()}</h3>
+
 
 <!-- 		<div class="row image-align" id="images"> -->
 			<div class="card-container">
@@ -65,11 +66,13 @@ a>h4 {
 </div>
 <script>
 const $cardContainer = get('.card-container');
+const $dataCountElem = get('#data-count');
 const $cards = getAll('.card');
 const $skeletonContainer = get('.skeleton-container');
 
 const CREATE_CARD_COUNT = 4;
-let cardImageNumber = 0;
+var cardImageNumber = 0;
+const totalCardCount = parseInt($dataCountElem.getAttribute('data-count'), 10);
 
 const io = new IntersectionObserver(ioObserver, {
   threshold: 1,
@@ -84,15 +87,28 @@ function getAll(htmlElem) {
 }
 
 function makeCard() {
+  // Check if we have loaded all the cards
+  const currentCardCount = $cardContainer.querySelectorAll('.card').length;
+  if (currentCardCount >= totalCardCount) return; // Stop loading if all cards are loaded
+
   if (cardImageNumber >= 12) cardImageNumber = 0;
-  for (let i = cardImageNumber; i < cardImageNumber + 4; i++) {
+  for (var i = cardImageNumber; i < cardImageNumber + CREATE_CARD_COUNT; i++) {
+    if (currentCardCount >= totalCardCount) break; // Stop adding more cards if we reach the total count
+
     const $card = document.createElement('div');
     $card.classList.add('card');
-
+    $card.innerHTML = `
+        <a href="/item/detail?itemNo=${i}">
+          <img src="/item/image?itemNo=${i}" width="200px" height="200px">
+          <h4 class="card-title">Item ${i}</h4>
+          <h4 class="card-content">가격 : ${i * 1000}원</h4>
+        </a>
+      `;
+    
     appendCard($card);
   }
 
-  cardImageNumber += 4;
+  cardImageNumber += CREATE_CARD_COUNT;
 }
 
 function makeSkeletonCard() {
@@ -127,13 +143,11 @@ function loading() {
 
 function ioObserver(entries) {
   entries.forEach((entry) => {
-    const { target } = entry;
-
     if (entry.isIntersecting) {
-      io.unobserve(target);
+      io.unobserve(entry.target);
       loading();
 
-      const timer = setTimeout(() => {
+      setTimeout(() => {
         makeCard();
         removeSkeletonCard();
         observeLastCard(io, getAll('.card'));
@@ -144,14 +158,18 @@ function ioObserver(entries) {
 
 function observeLastCard(io, cards) {
   const lastItem = cards[cards.length - 1];
-  io.observe(lastItem);
+  if (lastItem) {
+    io.observe(lastItem);
+  }
 }
 
 function init() {
-  observeLastCard(io, $cards);
+  makeCard(); // Initial load
+  observeLastCard(io, getAll('.card'));
 }
 
-init();</script>
+init();
+</script>
 
 </body>
 

@@ -38,7 +38,7 @@ public class ItemController {
 		
 		model.addAttribute("itemList", itemDao.selectList());
 		
-		return "/WEB-INF/views/item/list.jsp";
+		return "/WEB-INF/views/item/list2.jsp";
 	}
 //	private boolean checkSearch(String keyword) {
 //		if(keyword != null) return true;
@@ -56,7 +56,7 @@ public class ItemController {
 		model.addAttribute("column", column);
 		model.addAttribute("keyword", keyword);// 검색어
 		model.addAttribute("itemList", list);// 조회결과
-		return "/WEB-INF/views/item/list.jsp";
+		return "/WEB-INF/views/item/list2.jsp";
 	}
 
 	@RequestMapping("/detail")

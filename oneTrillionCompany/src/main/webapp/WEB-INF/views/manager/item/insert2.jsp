@@ -87,6 +87,7 @@
     <script>
         var cate2Options = {
             11: [
+            	{ value: "", text: "선택하세요"},
                 { value: "10", text: "티셔츠" },
                 { value: "11", text: "셔츠" }
             ],
