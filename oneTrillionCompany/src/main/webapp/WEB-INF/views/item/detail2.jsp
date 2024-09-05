@@ -337,7 +337,7 @@
 			</div>
 			<div class="row flex-box column-2">
 				<div class="left">
-					<!-- 상품원가* -->${itemDto.itemPrice}
+					<!-- 상품원가* -->
 					<span class="itemPrice"><del style="color: #999;">${itemDto.itemPrice}</del></span>
 					<!-- 상품판매가* -->
 					<span class="itemSalePrice" style="padding-left: 5px;"><b
