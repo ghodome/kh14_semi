@@ -337,11 +337,11 @@
 			</div>
 			<div class="row flex-box column-2">
 				<div class="left">
-					<!-- 상품원가* -->
-					<span class="itemPrice"><del style="color: #999;">${itemDto.itemSalePrice}</del></span>
+					<!-- 상품원가* -->${itemDto.itemPrice}
+					<span class="itemPrice"><del style="color: #999;">${itemDto.itemPrice}</del></span>
 					<!-- 상품판매가* -->
 					<span class="itemSalePrice" style="padding-left: 5px;"><b
-						style="font-weight: bolder;">${itemDto.itemPrice}</b></span>
+						style="font-weight: bolder;">${itemDto.itemSalePrice}</b></span>
 				</div>
 				<%-- <div class="right">
 					<!-- 상품할인비율* -->
