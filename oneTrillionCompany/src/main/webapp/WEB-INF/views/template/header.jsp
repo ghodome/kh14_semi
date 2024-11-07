@@ -14,7 +14,7 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/lightpick@1.6.2/lightpick.min.js"></script>
 <!-- 내가 만든 스타일 시트를 불러오는 코드 -->
-<link rel="stylesheet" type="text/css" href="/css/commons.css">
+<link rel="stylesheet" type="text/css" href="./css/commons.css">
 <!-- <link rel="stylesheet" type="text/css" href="/css/test.css"> -->
 <!-- font awesome-->
 <link rel="stylesheet" type="text/css"

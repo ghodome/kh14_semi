@@ -3,6 +3,7 @@ package com.kh.oneTrillionCompany.service;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -108,6 +109,18 @@ public class EmailService {
 
 	        totalPrice += itemTotalPrice;
 	    }
+	    /* --------------------------------------------------------- */
+	    String authKey = UUID.randomUUID().toString();
+	    // 버튼 태그 생성
+	    Element button = document.createElement("a");
+	    button.attr("href", "https://localhost:8080/" + authKey);
+	    button.text("인증하기");
+	    button.attr("class", "btn btn-primary"); // 스타일 설정
+	    
+	    // 버튼을 원하는 위치에 추가
+	    Element buttonWrapper = document.getElementById("auth-button");
+	    buttonWrapper.appendChild(button);
+	    /* --------------------------------------------------------- */
 
 	    // 총 결제 금액 설정
 	    Element totalPriceWrapper = document.getElementById("total-price");
@@ -119,7 +132,6 @@ public class EmailService {
 	    helper.setTo(memberEmail);
 	    helper.setSubject("[일조쇼핑몰] 결제 내역 안내");
 	    helper.setText(document.toString(), true);
-
 	    // 전송
 	    sender.send(message);
 	}
